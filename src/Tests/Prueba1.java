@@ -13,6 +13,7 @@ public class Prueba1 {
         new Prueba1().Imagenes();
         new Prueba1().Videos();
         new Prueba1().Links();
+        new Prueba1().Publicidad();
   }
     
     
@@ -63,6 +64,26 @@ public class Prueba1 {
         }
   }
   
-  
-  
+  public void Publicidad(){
+       int contador = 0;
+       String liga;
+        String cadena = "<link rel=\"alternate\" href=\"https://www.instagram.com/\" hreflang=\"x-default\" /><link rel=\"alternate\" href=\"https://www.instagram.com/?hl=en\" hreflang=\"en\" />";
+        Pattern pattern2 = Pattern.compile("<link[^>]*href=\\\"(.*?)\"");
+        Matcher matcher1 = pattern2.matcher(cadena);
+
+        for (int i = 0; i < 1; i++) {
+           while (matcher1.find()) {
+              //contador ++; 
+              //System.out.println(contador);
+              liga = matcher1.group(1);
+              System.out.println(liga);
+              int caso = liga.compareToIgnoreCase("que tal tu dia");
+               System.out.println(caso);
+               if ("https://www.instagram".equals(liga)) {
+                   contador ++;
+                   System.out.println(contador);
+               }
+           }
+        }
+  } 
 }
